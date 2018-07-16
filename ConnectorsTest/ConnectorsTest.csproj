@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{04360FB8-27CA-4823-8CC9-33998291CC57}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConnectorsTest</RootNamespace>
+    <AssemblyName>ConnectorsTest</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\CryptoExchanges2\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\CryptoExchanges2\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACX\ACX.csproj">
+      <Project>{8E32EBFE-5344-48F1-8DCE-EB815D1EF9E8}</Project>
+      <Name>ACX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Allcoin\Allcoin.csproj">
+      <Project>{FFA0C0BC-6CBB-40F1-BBE7-CBD9403FCB56}</Project>
+      <Name>Allcoin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitcoinIndonesia\BitcoinIndonesia.csproj">
+      <Project>{96A08E17-25CE-4FDF-8094-43844B15BF7D}</Project>
+      <Name>BitcoinIndonesia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitFlyer\BitFlyer.csproj">
+      <Project>{CBB33D84-0D1F-4145-BA9D-8E345579010A}</Project>
+      <Name>BitFlyer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BrokerModel\Shared.csproj">
+      <Project>{2D5BCEC3-6157-4B13-83C8-C710860E4EE4}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CexIO\CexIO.csproj">
+      <Project>{2D5A0B3A-5D1D-4B70-A5D7-2D0E24667491}</Project>
+      <Name>CexIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Coinone\Coinone.csproj">
+      <Project>{B5FA921E-A40A-4FAB-B0AB-3D5B9214808F}</Project>
+      <Name>Coinone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoExchanges2\CryptoExchanges2.csproj">
+      <Project>{E2E013AD-C99E-46EE-BB43-223DE54FD106}</Project>
+      <Name>CryptoExchanges2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gatecoin\Gatecoin.csproj">
+      <Project>{694CF8D7-78A3-4FAA-BE71-02F0BFB7A384}</Project>
+      <Name>Gatecoin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GateIO\GateIO.csproj">
+      <Project>{D1C6262C-A4C0-47F3-BAE1-FD2AE685840E}</Project>
+      <Name>GateIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GDAX\GDAX.csproj">
+      <Project>{7132A88E-9635-48D1-B11E-E88311393EC0}</Project>
+      <Name>GDAX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LakeBTC\LakeBTC.csproj">
+      <Project>{B9A4AA7B-23C7-48A6-A32D-40E577790780}</Project>
+      <Name>LakeBTC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Livecoin\Livecoin.csproj">
+      <Project>{5A9F0490-0A47-4809-BC8E-E16295880AC6}</Project>
+      <Name>Livecoin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Poloniex\Poloniex.csproj">
+      <Project>{D48E380D-53A7-4EC8-9B1E-429C23BB02C5}</Project>
+      <Name>Poloniex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuadrigaCX\QuadrigaCX.csproj">
+      <Project>{6726D174-EF02-4E5F-A36D-02BA0BB67D60}</Project>
+      <Name>QuadrigaCX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tidex\Tidex.csproj">
+      <Project>{98AD3527-FDC3-4EB3-95C0-5D52805500CC}</Project>
+      <Name>Tidex</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+</Project>

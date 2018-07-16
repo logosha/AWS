@@ -1,0 +1,63 @@
+﻿using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Shared.Broker
+{
+    /// <summary>
+    /// Represent adapter internal events.
+    /// </summary>
+    public enum BrokerEvent
+    {
+        SessionLogon,
+        SessionLogout,
+        InternalError,
+        ParseError,
+        Info,
+        Debug,
+        Ready,
+    };
+
+    /// <summary>
+    /// The 'messages notification interface allows to receive execution reports, price and reject messages.
+    /// </summary>
+    public interface IBrokerApplication
+    {
+        void OnEvent  (string Name, BrokerEvent what, string details);
+        void OnReport(string Name, Order order);
+        void OnReport (string Name, ExecutionReport  report);
+        void OnReport(string Name, string symbol, MarketBook topOfBook, IEnumerable<MarketUpdate> updates);
+    }
+
+    public enum SubscriptionModel
+    {
+        TopBook,
+        FullBook,
+        Incremental,
+    };
+
+    /// <summary>
+    /// The 'messages adapter interface' allow to send trades and subscription commands to a broker.
+    /// </summary>
+    /// `
+    public interface IBrokerClient
+    {
+        Task<IEnumerable<Balance>> GetBalance();
+<<<<<<< HEAD
+        Task<MarketBook> GetTicker(Instrument instr);
+=======
+        Task<MarketBook?> GetTicker(Instrument instr);
+>>>>>>> d97ff7ec9599c81d64b00a9387fc8c5a41cc9eb7
+        Task<IEnumerable<MarketUpdate>> GetMarketBook(Instrument instr, int level);
+        Task Subscribe(Instrument instr, SubscriptionModel model);
+        Task Unsibscribe(Instrument instr, SubscriptionModel model);
+        Task<IEnumerable<Instrument>> GetInstruments();
+        Task<Order> SendNewOrder(Order order);
+        Task<Order> CancelOrder(Order order);
+        Task<Order> ModifyOrder(Order order, double price, double stopPrice, uint qty);
+        string Name { get; }
+        bool? IsConnected { get; }
+    }
+
+}

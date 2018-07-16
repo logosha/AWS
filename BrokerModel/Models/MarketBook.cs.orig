@@ -1,0 +1,25 @@
+﻿using System;
+
+namespace Shared.Models
+{
+    public struct MarketBook
+    {
+        public DateTime Time { get; set; }
+        public double Bid { get; set; }
+        public double Ask { get; set; }
+        public double BidSize;
+        public double AskSize;
+        public double Trade { get; set; }
+        public uint TradeSize { get; set; } 
+        public double Last
+        {
+            get
+            {
+                if (Trade != 0)
+                    return Trade;
+                else
+                    return (Bid + Ask) / 2;
+            }
+        }
+    };
+}

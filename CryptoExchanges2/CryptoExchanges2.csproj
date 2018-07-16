@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E2E013AD-C99E-46EE-BB43-223DE54FD106}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CryptoExchanges2</RootNamespace>
+    <AssemblyName>CryptoExchanges2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0168</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DiscreteLogics.TeaFiles, Version=1.0.0.35, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeaFiles.Net.1.0.0.35\lib\net40\DiscreteLogics.TeaFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.11\lib\net452\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CryptoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CryptoForm.Designer.cs">
+      <DependentUpon>CryptoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ITickStoreService.cs" />
+    <Compile Include="Database\SQLTickStoreService.cs" />
+    <Compile Include="MainClient.cs" />
+    <Compile Include="Models.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Database\TeaTickStoreService.cs" />
+    <EmbeddedResource Include="CryptoForm.resx">
+      <DependentUpon>CryptoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\pairs.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACX\ACX.csproj">
+      <Project>{8E32EBFE-5344-48F1-8DCE-EB815D1EF9E8}</Project>
+      <Name>ACX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Allcoin\Allcoin.csproj">
+      <Project>{FFA0C0BC-6CBB-40F1-BBE7-CBD9403FCB56}</Project>
+      <Name>Allcoin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Binance\Binance.csproj">
+      <Project>{DC7A7119-650E-47B0-8A74-D95D4FBB7C11}</Project>
+      <Name>Binance</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitcoinIndonesia\BitcoinIndonesia.csproj">
+      <Project>{96A08E17-25CE-4FDF-8094-43844B15BF7D}</Project>
+      <Name>BitcoinIndonesia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bitfinex\Bitfinex.csproj">
+      <Project>{D5A89107-4516-431D-9C38-FCA8D47943B1}</Project>
+      <Name>Bitfinex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitFlyer\BitFlyer.csproj">
+      <Project>{CBB33D84-0D1F-4145-BA9D-8E345579010A}</Project>
+      <Name>BitFlyer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bithumb\Bithumb.csproj">
+      <Project>{bd93ce94-0fbf-43b2-af9d-9669c573af5b}</Project>
+      <Name>Bithumb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bitstamp\Bitstamp.csproj">
+      <Project>{25DF0E39-28B6-456E-99F4-0F19BF92A571}</Project>
+      <Name>Bitstamp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bittrex\Bittrex.csproj">
+      <Project>{AEB558AA-5592-42D1-91C7-DE7FCBE82DD0}</Project>
+      <Name>Bittrex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BrokerModel\Shared.csproj">
+      <Project>{2D5BCEC3-6157-4B13-83C8-C710860E4EE4}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CexIO\CexIO.csproj">
+      <Project>{2D5A0B3A-5D1D-4B70-A5D7-2D0E24667491}</Project>
+      <Name>CexIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Coinone\Coinone.csproj">
+      <Project>{B5FA921E-A40A-4FAB-B0AB-3D5B9214808F}</Project>
+      <Name>Coinone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exmo\Exmo.csproj">
+      <Project>{4d42a9c9-37d6-45d5-a41d-ee8a9cfebb3a}</Project>
+      <Name>Exmo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EXX\EXX.csproj">
+      <Project>{0a473723-557d-4047-a94a-94b161542d41}</Project>
+      <Name>EXX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gatecoin\Gatecoin.csproj">
+      <Project>{694CF8D7-78A3-4FAA-BE71-02F0BFB7A384}</Project>
+      <Name>Gatecoin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GateIO\GateIO.csproj">
+      <Project>{D1C6262C-A4C0-47F3-BAE1-FD2AE685840E}</Project>
+      <Name>GateIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GDAX\GDAX.csproj">
+      <Project>{7132A88E-9635-48D1-B11E-E88311393EC0}</Project>
+      <Name>GDAX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gemini\Gemini.csproj">
+      <Project>{416ce78e-3b2d-40a6-8cad-53923b94c3a1}</Project>
+      <Name>Gemini</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HitBTC\HitBTC.csproj">
+      <Project>{9BC7A9D0-5B34-43E3-8CB7-98D56F0B2983}</Project>
+      <Name>HitBTC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\itBit\itBit.csproj">
+      <Project>{76B3FF45-B11C-47A3-A2FD-DD2E3F9293FB}</Project>
+      <Name>itBit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kraken\Kraken.csproj">
+      <Project>{d0a888bb-b5bc-46c2-84d1-5087746ff6c4}</Project>
+      <Name>Kraken</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LakeBTC\LakeBTC.csproj">
+      <Project>{B9A4AA7B-23C7-48A6-A32D-40E577790780}</Project>
+      <Name>LakeBTC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Liqui\Liqui.csproj">
+      <Project>{e8659b5c-ad94-47bb-a634-0e2d92ada138}</Project>
+      <Name>Liqui</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Livecoin\Livecoin.csproj">
+      <Project>{5A9F0490-0A47-4809-BC8E-E16295880AC6}</Project>
+      <Name>Livecoin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Poloniex\Poloniex.csproj">
+      <Project>{D48E380D-53A7-4EC8-9B1E-429C23BB02C5}</Project>
+      <Name>Poloniex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuadrigaCX\QuadrigaCX.csproj">
+      <Project>{6726D174-EF02-4E5F-A36D-02BA0BB67D60}</Project>
+      <Name>QuadrigaCX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quoine\Quoine.csproj">
+      <Project>{B8051F2E-AA34-44A0-9EE9-AD7F78138548}</Project>
+      <Name>Quoine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tidex\Tidex.csproj">
+      <Project>{98AD3527-FDC3-4EB3-95C0-5D52805500CC}</Project>
+      <Name>Tidex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vaultoro\Vaultoro.csproj">
+      <Project>{adc34371-aaa7-47a7-b775-835bd6b497f0}</Project>
+      <Name>Vaultoro</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WEX\WEX.csproj">
+      <Project>{99726823-1d32-402f-b823-97118a8a91cd}</Project>
+      <Name>WEX</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="License.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+</Project>

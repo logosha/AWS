@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Shared.Models
+{
+    public class Balance
+    {
+        public double Value { set; get; }
+<<<<<<< HEAD
+        public string Symbol { set; get; }
+=======
+        public string Currency { set; get; }
+>>>>>>> d97ff7ec9599c81d64b00a9387fc8c5a41cc9eb7
+    }
+}
